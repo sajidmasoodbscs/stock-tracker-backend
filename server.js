@@ -324,7 +324,7 @@ runCronJob();
 //     scheduled: true
 // });
 
-const job = cron.schedule('0 0 * * *', async () => { 
+const job = cron.schedule('0 0 * * *', async () => {
     await runCronJob();
 }, {
     scheduled: true
@@ -386,6 +386,6 @@ async function updateLastTriggered(ref) {
 
 const port = process.env.PORT || 4000;
 
-app.listen(port, () => {
-    console.log(`> Ready on http://localhost:${port}`);
-})
+app.listen(port, '0.0.0.0', () => {
+    console.log(`> Ready on port ${port}`);
+});
