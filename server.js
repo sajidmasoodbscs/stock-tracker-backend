@@ -318,17 +318,17 @@ const runCronJob = async () => {
 console.log("Server started, running initial cron job");
 runCronJob();
 
-// const job = cron.schedule('*/5 * * * *', async () => {
-//     await runCronJob();
-// }, {
-//     scheduled: true
-// });
-
-const job = cron.schedule('0 0 * * *', async () => {
+const job = cron.schedule('*/5 * * * *', async () => {
     await runCronJob();
 }, {
     scheduled: true
 });
+
+// const job = cron.schedule('0 0 * * *', async () => {
+//     await runCronJob();
+// }, {
+//     scheduled: true
+// });
 
 
 async function processAlert(alert, priceMap, ref) {
