@@ -298,6 +298,8 @@ const runCronJob = async () => {
 
         const alertsSnapshot = await db.collection('alerts').get();
 
+        console.log("alertsSnapshot",alertsSnapshot);
+
         const processingPromises = [];
 
         alertsSnapshot.forEach(doc => {
@@ -369,7 +371,6 @@ async function sendAlertEmail(alert, currentPrice) {
       <h2>Price Alert Triggered!</h2>
       <p>${alert.indexSymbol}: $${currentPrice.toFixed(2)}</p>
       <p>Your threshold: $${alert.threshold} (${alert.condition})</p>
-      <p><a href="${process.env.APP_URL}/alerts">Manage Alerts</a></p>
     `
     };
 
