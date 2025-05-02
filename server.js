@@ -292,6 +292,8 @@ const runCronJob = async () => {
             timeout: 10000
         });
 
+        console.log("data from livestock",response);
+
         const priceMap = new Map(
             response.data.response.map(item => [item.symbol, item.price])
         );
