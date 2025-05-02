@@ -329,8 +329,7 @@ const runCronJob = async () => {
 
 console.log("Server started, running initial cron job");
 runCronJob();
-
-const job = cron.schedule('*/5 * * * *', async () => {
+const job = cron.schedule('0 5 * * *', async () => {
     await runCronJob();
 }, {
     scheduled: true
