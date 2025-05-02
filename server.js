@@ -292,6 +292,14 @@ const runCronJob = async () => {
             timeout: 10000
         });
 
+         if (response.data?.response === 'Insufficient API credits remaining.') {
+             console.warn("API Warning:", response.data.response);
+             return; // Exit early, preventing next code execution
+          }
+
+       // Continue with your logic using response.data here
+        console.log("Live stock prices:", response.data.response);
+
         console.log("data from livestock",response);
 
         const priceMap = new Map(
